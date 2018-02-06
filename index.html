@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Electron + Material Components</title>
+    <link rel="stylesheet" href="./node_modules/material-components-web/dist/material-components-web.css">
+	<link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body class="mdc-typography">
+  
+    <h2 class="mdc-typography--display2">Hello, Electron and Material Components!</h2>
+    <div>
+		<!-- All of the Node.js APIs are available in this renderer process. -->
+		We are using Node.js <script>document.write(process.versions.node)</script>,
+		Chromium <script>document.write(process.versions.chrome)</script>,
+		and Electron <script>document.write(process.versions.electron)</script>,
+		and jquery 3.3.1,
+		and material-components-web 0.28.0. Ähm...
+    </div>
+	
+    <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+		<input type="text" class="mdc-text-field__input" id="demo-input">
+		<label for="demo-input" class="mdc-text-field__label">Tell us how you feel!</label>
+    </div>
+   
+    <script>
+		// You can also require other files to run in this process
+		require('./renderer.js');	
+		// dependencies
+		window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.js');
+		window.mdc = require('./node_modules/material-components-web/dist/material-components-web.js');
+		// custom javascript
+		require('./js/index.js');
+		// start Material Design
+		mdc.autoInit();
+		// jQuery test
+		$( document ).ready(function() {
+			console.log( "start" );
+		});
+    </script>
+	</body>
+</html>
