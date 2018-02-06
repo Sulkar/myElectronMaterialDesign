@@ -1,6 +1,6 @@
 # myElectronMaterialDesign
 
-**Clone and run for a quick way to setup Electron with Material Design.**
+**Clone and run for a quick way to setup [Electron](http://electron.atom.io) with [Material Design.](https://material.io/components/web/) **
 
 This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
 
