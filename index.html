@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="UTF-8">
-    <title>Electron + Material Components</title>
-    <link rel="stylesheet" href="./node_modules/material-components-web/dist/material-components-web.css">
-	<link rel="stylesheet" href="./css/index.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Electron + Material Design App</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="./node_modules/material-components-web/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- section imports -->
+    <link rel="import" href="views/view1.html" id="import1">
+    <link rel="import" href="views/view2.html" id="import2">
   </head>
+
   <body class="mdc-typography">
-  
-    <h2 class="mdc-typography--display2">Hello, Electron and Material Components!</h2>
-    <div>
-		<!-- All of the Node.js APIs are available in this renderer process. -->
-		We are using Node.js <script>document.write(process.versions.node)</script>,
-		Chromium <script>document.write(process.versions.chrome)</script>,
-		and Electron <script>document.write(process.versions.electron)</script>,
-		and jquery 3.3.1,
-		and material-components-web 0.28.0. Ähm...
+    <!-- toolbar -->
+    <div class="mdc-toolbar mdc-toolbar--fixed">
+      <div class="mdc-toolbar__row">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+          <button id="btn_menu" class="mdc-toolbar__menu-icon"><i class="material-icons">menu</i></button>
+          <span class="mdc-toolbar__title catalog-title">Start</span>
+        </section>
+          <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
+          <button id="btn_heart" class="mdc-toolbar__menu-icon"><i class="material-icons">favorite</i></button>
+        </section>
+      </div>
     </div>
-	
-    <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
-		<input type="text" class="mdc-text-field__input" id="demo-input">
-		<label for="demo-input" class="mdc-text-field__label">Tell us how you feel!</label>
-    </div>
-   
+    <!-- drawer -->
+    <aside class="mdc-drawer mdc-drawer--temporary mdc-typography">
+      <nav class="mdc-drawer__drawer">
+        <header class="mdc-drawer__header">
+          <div class="mdc-drawer__header-content mdc-theme--text-primary-on-primary mdc-theme--primary-bg">
+            Header here
+          </div>
+        </header>
+        <nav id="icon-with-text-demo" class="mdc-drawer__content mdc-list">
+          <a id="nav1" class="mdc-list-item mdc-list-item--selected" data-section="view1" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>View 1 - Overview
+          </a>
+          <a id="nav2" class="mdc-list-item" data-section="view2" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>View 2 - NeDB
+          </a>
+        </nav>
+      </nav>
+    </aside>
+
+    <!-- Wrapper -->
+    <div id="wrapper" style="margin-top: 100px;"></div>
+
     <script>
-		// You can also require other files to run in this process
-		require('./renderer.js');	
-		// dependencies
-		window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.js');
-		window.mdc = require('./node_modules/material-components-web/dist/material-components-web.js');
-		// custom javascript
-		require('./js/index.js');
-		// start Material Design
-		mdc.autoInit();
-		// jQuery test
-		$( document ).ready(function() {
-			console.log( "start" );
-		});
+  		// global
+  		const shell = require('electron').shell;
+      // NeDB init
+      var Datastore = require('nedb');
+      var db = new Datastore({ filename: './data/datafile', autoload: true });
+  		// init jQuery and Material Design
+      window.$ = window.jQuery = require('jquery');
+  		window.mdc = require('./node_modules/material-components-web/dist/material-components-web.min.js');
+  		window.mdc.autoInit();
+  		// drawer functionality
+  		var drawer = new mdc.drawer.MDCTemporaryDrawer(document.querySelector('.mdc-drawer--temporary'));
+  		document.querySelector('#btn_menu').addEventListener('click', () => drawer.open = true);
+  		// additional js
+  		require('./js/index.js');
+  		require('./js/menu.js');
     </script>
-	</body>
+
+  </body>
 </html>

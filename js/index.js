@@ -1,7 +1,8 @@
 /*
 
-	functions.js file
+	index.js file
 
 */
+$( document ).ready(function() {
 
-console.log("Hello functions!");
+});

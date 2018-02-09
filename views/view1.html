@@ -1,0 +1,20 @@
+<template class="section-template">
+	<section id="welcome" class="wrapper style1 fullscreen intro">
+		<div class="inner">
+			<h1>View 1</h1>
+			<p>Hopefully this helps someone to get up to speed with electron + Material Design + Material Design Icons + NeDB.</p>
+			<ul class="actions">
+				<li><a href="#" data-link="https://electronjs.org/docs" class="b_view1">electron</a></li>
+				<li><a href="#" data-link="https://material.io/components/web/catalog/" class="b_view1">Material Design</a></li>
+				<li><a href="#" data-link="https://material.io/icons/" class="b_view1">Material Design Icons</a></li>
+				<li><a href="#" data-link="https://github.com/louischatriot/nedb" class="b_view1">NeDB - Database</a></li>
+			</ul>
+		</div>
+	</section>
+	<script>
+		// link clicks
+		$('.b_view1').click(function(){
+			shell.openExternal($(this).data("link"));
+		});
+	</script>
+</template>
