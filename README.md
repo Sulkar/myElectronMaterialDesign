@@ -1,7 +1,8 @@
 # myElectronMaterialDesign
 
 ![Image of Electron APP](/images/intro.png)
-**Clone and run for a quick way to setup [Electron](http://electron.atom.io) with [Material Design.](https://material.io/components/web/) **
+
+**Clone and run for a quick way to setup [Electron](https://electronjs.org/docs) + [Material Design](https://material.io/components/web/catalog/) + [Material Design Icons](https://material.io/icons/) + [NeDB](https://github.com/louischatriot/nedb)**
 
 This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
 
@@ -18,6 +19,7 @@ You can learn more about each of these components within the [Quick Start Guide]
 ## To Use
 
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+:boom: ALERT: it will download all the Material Design Icons for offline use (60mb) :boom:
 
 ```bash
 # Clone this repository
