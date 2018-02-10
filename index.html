@@ -53,7 +53,8 @@
   		const shell = require('electron').shell;
       // NeDB init
       var Datastore = require('nedb');
-      var db = new Datastore({ filename: './data/datafile', autoload: true });
+      var db = {};
+  		db.users = new Datastore({ filename: './data/users.db', autoload: true });      
   		// init jQuery and Material Design
       window.$ = window.jQuery = require('jquery');
   		window.mdc = require('./node_modules/material-components-web/dist/material-components-web.min.js');

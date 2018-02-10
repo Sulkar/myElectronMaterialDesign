@@ -9,7 +9,7 @@ $( document ).ready(function() {
 	const link2 = document.querySelector('#import2');
 
 	// display start content
-	var template = link2.import.querySelector('.section-template');
+	var template = link1.import.querySelector('.section-template');
 	var clone = document.importNode(template.content, true);
 	document.querySelector('#wrapper').appendChild(clone);
 

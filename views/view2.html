@@ -3,7 +3,7 @@
 		<div class="inner">
 			<h1>View 2 - NeDB</h1>
 			<p>You can add new NeDB entries and delete them.</p>
-			<form action="#" id="greeting-form">
+
 		    <div>
 		      <div class="mdc-form-field">
 		        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
@@ -27,7 +27,6 @@
 		    </div>
 
 		    <button id="btn_saveDB"
-								type="submit"
 		            class="mdc-button
 		                   mdc-button--raised
 		                   mdc-ripple-surface"
@@ -35,14 +34,12 @@
 		      save to NeDB
 		    </button>
 				<button id="btn_readDB"
-								type="submit"
 		            class="mdc-button
 		                   mdc-button--raised
 		                   mdc-ripple-surface"
 		            data-mdc-auto-init="MDCRipple">
 		      read NeDB entries
 		    </button>
-		  </form>
 
 			<ul id="DB_entries" class="mdc-list">
 				<!-- container for db entries -->
@@ -51,22 +48,27 @@
 		</div>
 	</section>
 	<script>
-		// init mdc
-		window.mdc.autoInit();
+		// init mdc + NeDB
+		window.mdc.autoInit();		
 		// NeDB - buttons
 		$('#btn_saveDB').click(function(){
 			var tempFirstName = $('#firstname').val();
 			var tempLastName = $('#lastname').val();
-			var doc = { firstname: tempFirstName, lastname : tempLastName };
-			db.insert(doc, function (err, newDoc) {
-				if(err == null){
-					$('#firstname').val("");
-					$('#lastname').val("");
-					$('#firstname').focus();
-				}else{
-					alert(err);
-				}
-			});
+			if(tempFirstName !== "" && tempLastName !== ""){
+				var doc = { firstname: tempFirstName, lastname : tempLastName };
+				db.users.insert(doc, function (err, newDoc) {
+					if(err == null){
+						$('#firstname').val("");
+						$('#lastname').val("");
+						$('#firstname').focus();
+						listNeDBEntries();
+					}else{
+						alert(err);
+					}
+				});
+			}else{
+				alert("empty fields!");
+			}
 		});
 		$('#btn_readDB').click(function(){
 			listNeDBEntries();
@@ -74,7 +76,7 @@
 
 		// function list NeDB entries
 		function listNeDBEntries(){
-			db.find({ }, function (err, docs) {
+			db.users.find({ }, function (err, docs) {
 				var tempDBentries = "";
 				$.each(docs, function(i, val) {
 					tempDBentries += '<li class="mdc-list-item">' + val.firstname + ' ' + val.lastname + '<a data-id='+ val._id +' class="del_icon mdc-list-item__meta material-icons" href="#" aria-label="Remove from favorites" title="delete entry" onclick="event.preventDefault();">delete</a></li>';
@@ -88,12 +90,12 @@
 		}
 		// function delete NeDB entry
 		function deleteEntry(tempID){
-			db.remove({ _id: tempID }, {}, function (err, numRemoved) {
+			db.users.remove({ _id: tempID }, {}, function (err, numRemoved) {
 				if(numRemoved > 0){
 					listNeDBEntries();
 				}
 			});
 		}
-		
+
 	</script>
 </template>
