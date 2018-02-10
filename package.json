@@ -4,17 +4,17 @@
   "description": "A minimal Electron + Material Design + Material Design Icons + NeDB application",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-	"pack": "build --dir",
-    "dist": "build"
-  },
+  "start": "electron .",
+  "pack": "build --dir",
+  "dist": "build"
+},
   "build": {
-   "appId": "your.id",
-   "win": {
+    "appId": "your.id",
+    "win": {
       "target": "NSIS",
       "icon": "build/icon.ico"
     }
-},
+  },
   "repository": "https://github.com/Sulkar/myElectronMaterialDesign.git",
   "keywords": [
     "Electron",

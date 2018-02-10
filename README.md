@@ -29,12 +29,11 @@ cd myElectronMaterialDesign
 npm run dist
 ```
 
-## Resources for Learning
+## Resources
 
-- [electron.atom.io/docs](http://electron.atom.io/docs) - all of Electron's documentation
-- [electron.atom.io/community/#boilerplates](http://electron.atom.io/community/#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
-- ...
+- [Electron's documentation](https://electronjs.org/docs)
+- [Material Design Components](https://material.io/components/web/catalog)
+- [Material Icons Guide](http://google.github.io/material-design-icons)
+- [NeDB - js Database](https://github.com/louischatriot/nedb)
+- [Electron Builder Documentation](https://www.electron.build)
+- [.ICO Converter](http://icoconvert.com) - dimension must be at least 256x256
