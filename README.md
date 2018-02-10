@@ -20,6 +20,14 @@ npm install
 npm start
 ```
 
+## build your electron apps
+For building the app we use the "electron-builder" module. Create an icon for your app and store it in the ./build folder (size must be 256x256 or higher). To build your final app run:
+```bash
+# Go into the repository
+cd myElectronMaterialDesign
+# Run electron-builder
+npm run dist
+```
 
 ## Resources for Learning
 
@@ -29,4 +37,4 @@ npm start
 - [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
 - [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
 - [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
-- ... 
+- ...
