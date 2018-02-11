@@ -1,11 +1,15 @@
 const electron = require('electron')
-// Module to control application life.
 const app = electron.app
-// Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
+
+// printing addon
+const fs = require('fs');
+const os = require('os');
+const ipc = electron.ipcMain;
+const shell = electron.shell;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -54,7 +58,12 @@ app.on('activate', function () {
   if (mainWindow === null) {
     createWindow()
   }
-})
+});
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// printing
+ipc.on('myPrinter', function(event){
+  const win = BrowserWindow.fromWebContents(event.sender);
+  win.webContents.print({
+    printBackground: true
+  });
+});

@@ -11,22 +11,22 @@ $( document ).ready(function() {
 	// display start content
 	var template = link1.import.querySelector('.section-template');
 	var clone = document.importNode(template.content, true);
-	document.querySelector('#wrapper').appendChild(clone);
+	document.querySelector('#myContent').appendChild(clone);
 
 	// nav links clicked
 	$('#nav1').click(function(){
-		$('#wrapper').html('');
+		$('#myContent').html('');
 		var template = link1.import.querySelector('.section-template');
 		var clone = document.importNode(template.content, true);
-		document.querySelector('#wrapper').appendChild(clone);
+		document.querySelector('#myContent').appendChild(clone);
 		// close drawer
 		drawer.open = false;
 	});
 	$('#nav2').click(function(){
-		$('#wrapper').html('');
+		$('#myContent').html('');
 		var template = link2.import.querySelector('.section-template');
 		var clone = document.importNode(template.content, true);
-		document.querySelector('#wrapper').appendChild(clone);
+		document.querySelector('#myContent').appendChild(clone);
 		// close drawer
 		drawer.open = false;
 	});

@@ -49,7 +49,7 @@
 	</section>
 	<script>
 		// init mdc + NeDB
-		window.mdc.autoInit();		
+		window.mdc.autoInit();
 		// NeDB - buttons
 		$('#btn_saveDB').click(function(){
 			var tempFirstName = $('#firstname').val();
@@ -78,8 +78,14 @@
 		function listNeDBEntries(){
 			db.users.find({ }, function (err, docs) {
 				var tempDBentries = "";
+				var tempCounter = 0;
 				$.each(docs, function(i, val) {
 					tempDBentries += '<li class="mdc-list-item">' + val.firstname + ' ' + val.lastname + '<a data-id='+ val._id +' class="del_icon mdc-list-item__meta material-icons" href="#" aria-label="Remove from favorites" title="delete entry" onclick="event.preventDefault();">delete</a></li>';
+					tempCounter++;
+					if(tempCounter >= 100){
+						tempDBentries += '<li class="mdc-list-item myPageBreak"></li>'
+						tempCounter = 0;
+					}
     		});
 				$('#DB_entries').html(tempDBentries);
 				// list item clicks -> remove entry

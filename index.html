@@ -8,6 +8,7 @@
     <!-- styles -->
     <link rel="stylesheet" href="./node_modules/material-components-web/dist/material-components-web.min.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/print.css">
     <!-- section imports -->
     <link rel="import" href="views/view1.html" id="import1">
     <link rel="import" href="views/view2.html" id="import2">
@@ -15,19 +16,19 @@
 
   <body class="mdc-typography">
     <!-- toolbar -->
-    <div class="mdc-toolbar mdc-toolbar--fixed">
+    <div class="mdc-toolbar">
       <div class="mdc-toolbar__row">
         <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
           <button id="btn_menu" class="mdc-toolbar__menu-icon"><i class="material-icons">menu</i></button>
           <span class="mdc-toolbar__title catalog-title">Start</span>
         </section>
           <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
-          <button id="btn_heart" class="mdc-toolbar__menu-icon"><i class="material-icons">favorite</i></button>
+          <button id="btn_print" class="mdc-toolbar__menu-icon"><i class="material-icons">print</i></button>
         </section>
       </div>
     </div>
     <!-- drawer -->
-    <aside class="mdc-drawer mdc-drawer--temporary mdc-typography">
+    <aside class="mdc-drawer mdc-drawer--temporary mdc-typography noPrint">
       <nav class="mdc-drawer__drawer">
         <header class="mdc-drawer__header">
           <div class="mdc-drawer__header-content mdc-theme--text-primary-on-primary mdc-theme--primary-bg">
@@ -46,15 +47,16 @@
     </aside>
 
     <!-- Wrapper -->
-    <div id="wrapper" style="margin-top: 100px;"></div>
+    <div id="myContent" style=""></div>
 
     <script>
+      require('./renderer.js')
   		// global
   		const shell = require('electron').shell;
       // NeDB init
       var Datastore = require('nedb');
       var db = {};
-  		db.users = new Datastore({ filename: './data/users.db', autoload: true });      
+  		db.users = new Datastore({ filename: './data/users.db', autoload: true });
   		// init jQuery and Material Design
       window.$ = window.jQuery = require('jquery');
   		window.mdc = require('./node_modules/material-components-web/dist/material-components-web.min.js');

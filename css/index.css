@@ -3,7 +3,12 @@
 :root {
    --mdc-theme-primary: #0e4ead;
 }
-
+body{
+  margin: 0px;
+}
+#myContent{
+  margin: 8px;
+}
 /* MaterialDesignIcons */
 @font-face {
   font-family: 'Material Icons';

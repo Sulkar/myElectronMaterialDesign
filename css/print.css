@@ -1,0 +1,13 @@
+@media print {
+  body {
+
+  }
+  .myPageBreak {
+		page-break-after: always;
+	}
+  .noPrint{
+    display: none;
+  }
+
+
+}
