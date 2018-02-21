@@ -1,9 +1,13 @@
+'use strict'; // used for electron-reload
+
 const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
+
+require('electron-reload')(path.join(__dirname, '/views/')); // reloads electron when file in folder "views" changed
 
 // printing addon
 const fs = require('fs');
